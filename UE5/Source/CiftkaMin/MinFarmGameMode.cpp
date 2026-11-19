@@ -6,7 +6,7 @@
 #include "Engine/World.h"
 #include "Engine/StaticMeshActor.h"
 #include "Components/StaticMeshComponent.h"
-#include "UObject/ConstructorHelpers.h"
+#include "Engine/StaticMesh.h"
 AMinFarmGameMode::AMinFarmGameMode()
 {
     DefaultPawnClass = AMinFarmPawn::StaticClass();
@@ -17,11 +17,11 @@ void AMinFarmGameMode::BeginPlay()
     Super::BeginPlay();
     UWorld* World = GetWorld();
     if (!World) return;
-    static ConstructorHelpers::FObjectFinder<UStaticMesh> CubeMesh(TEXT("/Engine/BasicShapes/Cube.Cube"));
-    if (CubeMesh.Succeeded())
+    UStaticMesh* CubeMesh = LoadObject<UStaticMesh>(nullptr, TEXT("/Engine/BasicShapes/Cube.Cube"));
+    if (CubeMesh)
     {
         AStaticMeshActor* Ground = World->SpawnActor<AStaticMeshActor>(FVector(0,0,-70), FRotator::ZeroRotator);
-        if (Ground) { Ground->GetStaticMeshComponent()->SetStaticMesh(CubeMesh.Object); Ground->SetActorScale3D(FVector(24,18,0.5f)); Ground->SetActorEnableCollision(true); }
+        if (Ground) { Ground->GetStaticMeshComponent()->SetStaticMesh(CubeMesh); Ground->SetActorScale3D(FVector(24,18,0.5f)); Ground->SetActorEnableCollision(true); }
     }
     const FVector AnimalSpots[] = { FVector(-450,-180,40), FVector(-120,-180,40), FVector(220,-180,40), FVector(520,-180,40) };
     for (int32 i=0; i<4; ++i)
