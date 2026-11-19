@@ -1,0 +1,7 @@
+{
+  "FileVersion": 3,
+  "EngineAssociation": "5.8",
+  "Category": "Games",
+  "Description": "Çiftka Min - Android için izometrik çiftlik oyunu",
+  "Modules": [{ "Name": "CiftkaMin", "Type": "Runtime", "LoadingPhase": "Default" }]
+}
