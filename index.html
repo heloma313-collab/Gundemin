@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="theme-color" content="#477d3d">
+  <title>Çiftka Min — Benim Çiftliğim</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="game-shell">
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark">🌻</span><div><strong>Çiftka Min</strong><small>Benim çiftliğim</small></div></div>
+      <div class="resources"><span>🪙 <b id="coins">1.250</b></span><span>💎 <b id="gems">25</b></span><span>⭐ <b id="level">1</b></span></div>
+      <button class="round-btn" id="settingsBtn" aria-label="Ayarlar">⚙</button>
+    </header>
+
+    <section class="scene-wrap">
+      <div class="scene" id="farmScene">
+        <div class="sky"></div><div class="distant-hills"></div>
+        <div class="farm-ground"></div>
+        <div class="river"></div>
+        <div class="path path-one"></div><div class="path path-two"></div>
+        <div class="tree tree-a">🌳</div><div class="tree tree-b">🌲</div><div class="tree tree-c">🌳</div><div class="tree tree-d">🌳</div>
+        <div class="plot plot-one" data-plot="0"><span>🌱</span><small>Buğday</small></div>
+        <div class="plot plot-two" data-plot="1"><span>🥕</span><small>Havuç</small></div>
+        <div class="plot plot-three" data-plot="2"><span>🌽</span><small>Mısır</small></div>
+        <div class="barn building" data-building="barn"><div class="roof"></div><div class="barn-body"><span>✦</span><b>AHIR</b><i></i></div><label>Awr</label></div>
+        <div class="coop building" data-building="coop"><div class="coop-roof"></div><div class="coop-body"><span>🐔</span></div><label>Mirîşk</label></div>
+        <div class="mill building" data-building="mill"><div class="mill-roof">✣</div><div class="mill-body">🏡</div><label>Değirmen</label></div>
+        <div class="fence fence-a"></div><div class="fence fence-b"></div>
+        <button class="animal cow" data-animal="cow" aria-label="İnek"><span class="animal-shadow"></span><span class="animal-art">🐄</span><small>Ga</small></button>
+        <button class="animal sheep" data-animal="sheep" aria-label="Koyun"><span class="animal-shadow"></span><span class="animal-art">🐑</span><small>Pez</small></button>
+        <button class="animal chicken" data-animal="chicken" aria-label="Tavuk"><span class="animal-shadow"></span><span class="animal-art">🐓</span><small>Dîk</small></button>
+        <button class="animal horse" data-animal="horse" aria-label="At"><span class="animal-shadow"></span><span class="animal-art">🐎</span><small>Hesp</small></button>
+        <div class="truck"><span>🚚</span><small>Karwan</small></div>
+        <div class="signpost">ÇIFTKA MIN</div>
+        <div class="scene-hint" id="sceneHint">Çiftliğine dokun ve keşfet!</div>
+      </div>
+      <div class="scene-controls"><button id="zoomOut">−</button><button id="zoomIn">＋</button><button id="homeView">⌂</button></div>
+    </section>
+
+    <section class="quest-strip">
+      <div><small>GÖREV / ERKA</small><strong id="questText">2 yumurta topla</strong></div>
+      <div class="quest-progress"><span id="questProgress"></span></div>
+      <b id="questCount">0/2</b>
+      <button id="questClaim" disabled>Ödül</button>
+    </section>
+
+    <nav class="bottom-nav">
+      <button class="nav-item active" data-panel="farm"><span>🏡</span><small>Çiftlik</small></button>
+      <button class="nav-item" data-panel="orders"><span>🚚</span><small>Sipariş</small></button>
+      <button class="nav-item" data-panel="market"><span>🏪</span><small>Pazar</small></button>
+      <button class="nav-item" data-panel="mine"><span>⛏️</span><small>Maden</small></button>
+      <button class="nav-item" data-panel="more"><span>☰</span><small>Daha fazla</small></button>
+    </nav>
+  </main>
+
+  <div class="modal-backdrop" id="modalBackdrop">
+    <section class="modal" role="dialog" aria-modal="true">
+      <button class="modal-close" id="modalClose">×</button>
+      <div id="modalContent"></div>
+    </section>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="game.js"></script>
+</body>
+</html>
